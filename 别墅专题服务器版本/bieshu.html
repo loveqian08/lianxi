@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>志远装饰——墅外世界·墅内是家</title>
+	<style>
+		
+	</style>
+	<script src="/js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+	<div class="bieshu01">
+		
+	</div>
+	<div class="bieshu02">
+		<div class="bieshu02_main">
+			<img src="/images/bs_01.png" alt="南昌志远装饰">
+			<ul class="bs_btn">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+
+			<!-- 弹框报名表单 -->
+			<div class="bs_tk_wrap">
+				<div class="bs_tk">
+					<i></i>
+					<form action="javascript:;" method="POST" class="bs_bm">
+						<input type="text" placeholder="请输入您的姓名" name="tc_name02" id="tc_name02">
+						<input type="text" placeholder="请输入您的电话号码" name="tc_shouji02" id="tc_shouji02">
+						<a href="javascript:;" onclick="bs_tj()">立即高端定制</a>
+					</form>
+				</div>
+			</div>
+			<script type="text/javascript">
+				//弹框表单的ajax提交代码
+				
+				function getNowFormDate() 
+                {
+                  var date = new Date();
+                  var seperator1 = "-";
+                  var seperator2 = ":";
+                  var year = date.getFullYear();
+                  var month = date.getMonth() + 1;
+                  var strDate = date.getDate();
+                  if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                  }
+                  if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                  }
+                  var currentdate = year + seperator1 + month + seperator1 + strDate
+                      + " " + date.getHours() + seperator2 + date.getMinutes()
+                      + seperator2 + date.getSeconds();
+                  return currentdate;
+                };
+
+                var up_time02 = getNowFormDate();
+                function bs_tj(){
+                	var tc_name02 = document.getElementById("tc_name02");
+              	    var tc_shouji02 = document.getElementById("tc_shouji02");
+              	    var data = 'tc_name02='+ tc_name02.value + '&tc_shouji02=' + tc_shouji02.value + '&up_time02='+ up_time02 + '&action=post'+ '&diyid=72&do=2&dede_fields=xingming,textchar;tel,textchar;updatatime,textchar';
+
+              	    $.ajax({
+              	    	type:'POST',
+              	    	data:data,
+              	    	url:"/plus/diy_ajax.php",
+              	    	success:function(data){
+              	    		alert(data);
+              	    		$('.tc_name02,.tc_shouji02').val(' ');
+              	    	}
+              	    });
+                }
+               
+                
+
+
+				//设置点击调出弹框报名表单
+				$('.bs_btn li').on('click',function(){
+					$('.bs_tk_wrap').fadeIn(300);
+				});	
+				$('.bs_tk i').on('click',function(){
+					$('.bs_tk_wrap').fadeOut(300);
+				});
+			</script>		
+		</div>
+	</div>
+	<div class="bieshu03">
+		<div class="bieshu03_main">
+			<img src="/images/bs_02.png" alt="南昌志远装饰">
+		</div>
+	</div>
+
+	<div class="bieshu04">
+		<div class="bieshu04_main">
+			<div class="bs04_top">
+				<ul>
+					<li class="current">中式风格</li>
+					<li>现代风格</li>
+					<li style="margin-right: 0;">欧式风格</li>
+				</ul>
+				<script type="text/javascript">
+					$(function (argument) {
+						//点击各种风格进行切换图片	
+						$('.bs04_top li').on('click',function(){
+
+							var index = $(this).index();
+							$('.bs04_pic').stop().animate({
+								'left':-index*1200
+
+							},500);
+							$(this).addClass('current').siblings().removeClass('current');
+
+						});
+						//点击客厅等进行tab栏切换
+						$('.bs04_btn ul li').on('click',function(){
+							var index2 = $(this).index();
+							$(this).addClass('current').siblings().removeClass('current');
+							$('.bs04_img li').eq(index2).addClass('current').siblings().removeClass('current');
+							$('.bs04_img3 li').eq(index2).addClass('current').siblings().removeClass('current');
+							$('.bs04_img2 li').eq(index2).addClass('current').siblings().removeClass('current');
+						});
+					});	
+
+				</script>	
+			</div>	
+			<div class="bs04_bd">
+				<div class="bs04_pic">
+					<div class="bs04_pic_ul">
+						<ul class="bs04_img ">
+							<li class="current"><img src="/images/bs_pic04.png" alt="南昌志远装饰"></li>
+							<li><img src="/images/zsct.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/zsws.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/zshy.jpg" alt="南昌志远装饰"></li>
+						</ul>
+						<div class="bs04_txt">
+							<h3>【雅墅】----效果图</h3>
+							<div class="bs04_p">
+								<p>客餐厅的设计在色彩搭配上强调
+								了空间的整体性，但在细节的描
+								画方面，不同材质的使用又碰撞
+								出不一样的家居之美。</p>
+							</div>	
+							<div class="bs04_btn">
+								<ul>
+									<li class="current">客厅</li>
+									<li>餐厅</li>
+									<li>卧室</li>
+									<li>花园</li>
+								</ul>
+							</div>
+						</div>
+					</div>	
+					<div class="bs04_pic_ul">
+						<ul class="bs04_img2">
+							<li class="current"><img src="/images/os_kt.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/os_ws.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/os_xxs.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/os_ct.jpg" alt="南昌志远装饰"></li>
+						</ul>
+						<div class="bs04_txt">
+							<h3>【雅墅】----效果图</h3>
+							<div class="bs04_p">
+								<p>客餐厅的设计在色彩搭配上强调
+								了空间的整体性，但在细节的描
+								画方面，不同材质的使用又碰撞
+								出不一样的家居之美。</p>
+							</div>	
+							<div class="bs04_btn">
+								<ul>
+									<li class="current">一层客厅</li>
+									<li>二层卧室</li>
+									<li>休息室</li>
+									<li>餐厅</li>
+								</ul>
+							</div>
+						</div>
+					</div>	
+					<div class="bs04_pic_ul">	
+						<ul class="bs04_img3">
+							<li class="current"><img src="/images/xd_kt.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/xd_jsf.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/xd_cf.jpg" alt="南昌志远装饰"></li>
+							<li><img src="/images/xd_ws.jpg" alt="南昌志远装饰"></li>
+						</ul>
+						<div class="bs04_txt">
+							<h3>【雅墅】----效果图</h3>
+							<div class="bs04_p">
+								<p>客餐厅的设计在色彩搭配上强调
+								了空间的整体性，但在细节的描
+								画方面，不同材质的使用又碰撞
+								出不一样的家居之美。</p>
+							</div>	
+							<div class="bs04_btn">
+								<ul>
+									<li class="current">客餐厅</li>
+									<li>健身房</li>
+									<li>厨房</li>
+									<li>卧室</li>
+								</ul>
+							</div>
+						</div>
+					</div>		
+				</div>	
+				
+			</div>
+			<div class="bs04_ft">
+				<img src="/images/bs_pic01.png" alt="南昌志远装饰">
+			</div>
+		</div>	
+	</div>
+	<div class="bieshu05">
+		<div class="bs05_main">
+			<img src="/images/bs_03.png" alt="南昌志远装饰">
+		</div>			
+	</div>
+
+	<div class="bieshu06">
+		<div class="bs06_main">
+			<div class="bs06_top">
+				<ul>
+					<li class="current">地板</li>
+					<li>瓷砖</li>
+					<li>橱柜</li>
+					<li>乳胶漆</li>
+					<li>卫浴</li>
+					<li style="margin-right: 0">洁具</li>
+				</ul>
+			</div>
+			<div class="bs06_bd">
+				<ul>
+						<li ><img src="/images/bs_pic02.jpg" alt="南昌志远装饰"></li>
+						<li><img src="/images/bs_pic07.jpg" alt="南昌志远装饰"></li>
+						<li><img src="/images/bs_pic09.jpg" alt="南昌志远装饰"></li>
+						<li><img src="/images/bs_pic05.jpg" alt="南昌志远装饰"></li>
+						<li><img src="/images/bs_pic06.jpg" alt="南昌志远装饰"></li>
+						<li><img src="/images/bs_pic04.jpg" alt="南昌志远装饰"></li>
+						<li ><img src="/images/bs_pic02.jpg" alt="南昌志远装饰"></li>
+				</ul>	
+			
+				<div class="bs06_arr_wrapR">
+					<div class="bs06_arrR"></div>
+				</div>
+				<div class="bs06_arr_wrapL">
+					<div class="bs06_arrL"></div>
+				</div>
+				<script type="text/javascript">
+					//点击bs06_top li切换图片
+					$('.bs06_top li').on('click',function(){
+						var index =$(this).index();
+						$(this).addClass('current').siblings().removeClass('current');
+						$('.bs06_bd ul').stop().animate({
+							'left':-index*1200
+						},500);	
+					});
+					//点击右边箭头滑动图片
+					var num = 0;
+					var flag = true;
+					$('.bs06_arr_wrapR').on('click',function(){
+						//定制函数节流
+						if (flag) {
+							num++;
+							if (num > 6) {
+								
+								$('.bs06_bd ul').css({left:0});
+								num = 1;
+							}
+							
+							flag =false;
+							
+							$('.bs06_bd ul').stop().animate({
+								'left':-num*1200
+							},500,function(){
+								flag =true;
+							});
+						};
+						//上面的瓷砖地板等随着图片的切换也进行切换
+						if (num==6) {
+							$('.bs06_top li').eq(0).addClass('current').siblings().removeClass('current');
+
+						}
+						$('.bs06_top li').eq(num).addClass('current').siblings().removeClass('current');
+					});
+					//点击左边箭头滑动图片
+					$('.bs06_arr_wrapL').on('click',function(){
+						//定制函数节流
+						if (flag) {	
+							num--;
+							if (num < 0) {
+								
+								$('.bs06_bd ul').css({left:-6*1200});
+								num = 5;
+							};
+							flag =false;
+
+							$('.bs06_bd ul').stop().animate({
+								'left':-num*1200
+							},500,function(){
+								flag =true;
+							})
+						};
+						if (num==6) {
+							$('.bs06_top li').eq(0).addClass('current').siblings().removeClass('current');
+
+						};
+						$('.bs06_top li').eq(num).addClass('current').siblings().removeClass('current');	
+					});
+				</script>
+
+			</div>
+		</div>
+	</div>
+	<div class="bieshu07">
+		<div class="bs07_main">
+			<img src="/images/bs_pic02.png" alt="南昌志远装饰">
+		</div>	
+	</div>
+	<div class="bieshu08">
+		<div class="bs08_main">
+			<img src="/images/bs_pic03.png" alt="南昌志远装饰">
+		</div>	
+	</div>
+	<div class="bieshu09">
+		<div class="bs09_main">
+			<form action="javascript:;" method="POST">
+				<input type="text" placeholder="请输入您的姓名">
+				<input type="text" placeholder="请输入您的手机号码">
+				<a href="javascript:;" class="bs_tj" onclick="ajax_mianfei()"> </a>
+			</form>
+			<!-- ajax提交代码 -->
+			<script type="text/javascript">
+				//get current time
+                
+
+                var Times = getNowFormDate(); 
+                //ajax提交表单   
+                function ajax_mianfei(){
+                    
+                    var xingming=document.getElementById("xingming");
+                    var tel=document.getElementById("tel");
+                   
+                    
+                    //定义变量接收上面表单每项的值和几个dede隐藏的input的值
+                    var dataString = 'xingming='+ xingming.value + '&tel=' + tel.value + '&updatatime=' + Times +'&action=post'+ '&diyid=70&do=2&dede_fields=xingming,textchar;tel,textchar;updatatime,textchar';
+
+                    if (xingming.value==" ") {
+                      alert("请输入您的姓名");
+                      return false;
+                    };
+                    if (tel.value==" " || tel.value.length  != 11) {
+                      alert("请输入正确的手机号码");
+                      return false
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "/plus/diy_ajax.php", //提交到后台文件
+                        data: dataString, //传值
+                        success: function(data) {
+
+                            alert(data);//成功打印PHP返回的值
+                            $('#xingming,#tel').val("");
+                        }
+                    });
+                    return false;
+
+                }
+			</script>
+		</div>
+	</div>
+	
+</body>
+</html>

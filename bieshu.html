@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>志远装饰——墅外世界·墅内是家</title>
+	<style>
+		*{margin:0;padding: 0;list-style-type: none;font-family: "微软雅黑"}
+		.bieshu01{
+			width: 100%;height: 594px;
+			background: url(images/bieshu_01.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+
+		}
+		.bieshu02{
+			width: 100%;height:481px;
+			background: url(images/bieshu_02.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+			padding-top: 117px;
+		}
+		.bieshu03{
+			width: 100%;height:642px;
+			background: url(images/bieshu_03.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+
+		}
+		.bieshu04{
+			width: 100%;height:1436px;
+			background: url(images/bieshu_04.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+			text-align: center;
+		}
+		.bieshu05{
+			width: 100%;height:1034px;
+			background: url(images/bieshu_05.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+
+		}
+		.bieshu06{
+			width: 100%;height:1177px;
+			background: url(images/bieshu_06.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+
+		}
+		.bieshu07{
+			width: 100%;height:933px;
+			background: url(images/bieshu_07.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+
+		}
+		.bieshu08{
+			width: 100%;height:826px;
+			background: url(images/bieshu_08.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+
+		}
+		.bieshu09{
+			width: 100%;height:225px;padding-top: 283px;
+			background: url(images/bieshu_09.jpg) no-repeat center;
+			background-size:cover;overflow:hidden; 
+
+		}
+		
+		.bs04_top li{
+			display: inline-block;
+			width: 169px;height: 50px;
+			float: left;background:#515058;
+			margin-right: 36px;line-height: 50px;
+			color:#fff;cursor: pointer;
+		}			
+		.bs04_top .current{
+			background: #d7a943;
+
+		}
+		.bieshu02_main{
+			width: 1200px;height: 155px;
+			margin:0 auto;position: relative;
+		}
+		div img{
+			width: 100%;
+		}
+		.bieshu03_main{
+			width: 1200px;height: 481px;
+			margin:0 auto;
+		}
+		.bieshu04_main{
+			width: 1200px;overflow:hidden;
+			margin:0 auto;text-align: center;
+		}
+		.bs04_pic{position:absolute;left:0;top:0}
+		.bs04_pic_ul{width: 1200px;float:left;height:568px;overflow:hidden;position:relative;}
+		.bs04_top ul{width:579px;height:50px;display: inline-block; }
+		.bs04_top{
+			margin-top: 340px;text-align: center;
+			margin-bottom: 58px;
+		}
+		.bs04_ft{margin-top: 30px;}
+		.bs04_txt{
+			width: 380px;
+		    height:480px;
+		    background: rgba(0,0,0,0.3);
+		    position: absolute;
+		    right: 3px;text-align: center;
+		    top: 4px;padding-top:81px;
+		}
+
+		.bs04_txt p{
+			color: #fff;
+		    font-size: 21px;
+		    line-height: 38px;
+		    margin-top: 45px;}
+		.bs04_bd{position: relative;width: 1200px;height:568px;overflow:hidden;}
+		.bs04_bd .bs04_img,.bs04_bd .bs04_img2,.bs04_bd .bs04_img3{position: absolute;left:0;top:0;width:3600px;height: 568px;overflow:hidden;}
+		.bs04_img li,.bs04_img2 li,.bs04_img3 li{
+			position: absolute;left:0;top:0;display: none;
+		}
+		.bs04_img li img,,.bs04_img2 li img,.bs04_img3 li img{width: 100%;}
+		.bs04_pic{width: 3600px;overflow:hidden;}
+		.bs04_img .current,.bs04_img2 .current,.bs04_img3 .current{display:block;}
+		.bs04_bd li{float:left;width: 1200px;height: 568px;}
+		.bs04_txt h3{font-size:27px;color:#fff;font-weight:normal;  }
+		.bs04_p{
+			width: 308px;height: 150px;margin:0 auto;
+		}
+		.bs05_main{
+			width: 1200px;height: 595px;margin:0 auto;
+		}
+		.bs05_main img{width: 100%;margin-top: 348px;}
+		.bs06_main{width: 1200px;margin:0 auto;margin-top: 365px;}
+		.bs06_top li{width: 170px;height: 50px;float:left;background:#515058;margin-right: 36px;line-height: 50px;text-align: center;color:#fff;cursor: pointer;font-size: 16px;}
+		.bs06_top .current{
+			background: #d7a943;
+		}
+		.bs07_main,.bs08_main{width: 1200px;margin:0 auto;}
+		.bs07_main img{width: 100%;margin-top:444px;}
+		.bs08_main img{width: 100%;margin-top:194px;}
+		.bs04_btn{width: 254px;height: 120px;margin: 85px auto 0;
+			
+		}
+		.bs04_btn li{width: 112px;height: 46px;float:left;background:salmon;line-height: 46px;text-align: center;color: #fff;background:#515058;cursor: pointer;}
+		.bs04_btn li:nth-child(2n+1){margin-right:28px;margin-bottom: 30px;}
+
+		.bs04_btn .current{background: #daab44;}
+		.bs06_bd li{
+			width: 1200px;height: 552px;float:left;
+
+		}
+		.bs06_bd ul{width: 8400px;overflow:hidden;position:absolute;left:0;top:0;}
+		.bs06_bd .current{display:block;}
+		.bs06_top{width: 1200px;height: 50px;margin-bottom: 110px;}
+		.bs_btn{position:absolute;left:61px;top:103px; }
+		.bs_btn li{
+			width: 165px;height: 42px;
+			background:url(images/bs_btn.png) no-repeat;
+			float: left;margin-right: 140px;cursor: pointer;
+		}
+		.bs_btn li:last-child{margin-right: 0}
+		.bs06_bd{width: 1200px;height: 552px;overflow:hidden;position:relative;}
+		.bs06_arrR{width: 48px;height: 48px;background: url(images/next_r.png) no-repeat
+			;display:inline-block;    margin-top: 13px;}
+		.bs06_arr_wrapR{
+			width: 48px;height:80px;right: 10px;top:50%;
+			margin-top:-40px;cursor: pointer;line-height: 80px;
+			position: absolute;text-align: center;background:rgba(0,0,0,0.3);
+		}
+
+		.bs06_arr_wrapL{
+			width: 48px;height:80px;left: 10px;top:50%;
+			margin-top:-40px;cursor: pointer;line-height: 80px;
+			position: absolute;text-align: center;background:rgba(0,0,0,0.3);
+		}	
+		.bs06_arrL{width: 48px;height: 48px;background: url(images/prev_l.png) no-repeat
+			;display:inline-block;    margin-top: 13px;}
+		.bs09_main{width: 1200px;height:188px;margin:0 auto;text-align: center; }
+		.bs09_main input{
+			width: 333px;height: 48px;display:inline-block;background:none;border:0 none;
+			border:1px solid #fff;padding-left: 15px;color:#fff;outline:none;
+		}
+		.bs09_main input::-webkit-input-placeholder{
+			color:#fff;
+		}
+		.bs09_main input::-moz-input-placeholder{
+			color:#fff;
+		}
+		.bs09_main input::-o-input-placeholder{
+			color:#fff;
+		}
+		.bs09_main input::-ms-input-placeholder{
+			color:#fff;
+		}
+		.bs09_main input:first-child{margin-right: 30px;}
+		.bs_tj{
+
+			display: block;
+		    width: 367px;
+		    height: 70px;
+		    background: url(images/bs_btn2.png) no-repeat center;
+		    background-size: 80%;
+			margin: 50px auto;
+		}
+		/* 弹框报名表单 */
+		.bs_tk{
+			width: 408px;height: 387px;
+			background:url(images/bs_tk.png) no-repeat;
+			background-size:100%;
+			position: fixed;left:0;top:0;bottom: 0;right: 0;
+			margin:auto;
+		}
+		.bs_tk_wrap{
+			width: 100%;height: 100%;
+			background:rgba(0,0,0,0.6);position:fixed;
+			top:0;left: 0;z-index: 9999;-display:none;
+		}
+		.bs_tk i{
+			    display: block;
+			    width: 30px;
+			    height: 30px;
+			    background: url(images/down_btn.png) no-repeat;
+			    position: absolute;
+			    top: 9%;
+			    right: 9%;
+			    background-size: 100%;
+			    cursor: pointer;
+		}
+		.bs_bm{
+			width: 260px;height: 166px;
+			margin:175px auto 0; 
+		}
+		.bs_bm input{
+			width: 252px;height: 40px;
+			background:none;border:0 none;
+			margin-bottom: 10px;padding-left:10px; 
+			outline: none;
+		}
+		.bs_bm a{
+			display:block;width: 262px;height: 40px;
+			background: #d7a943;border-radius: 5px;
+			line-height: 40px;text-align: center;text-decoration: none;
+			color:#fff;margin-top: 10px;
+		}
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+</head>
+<body>
+	<div class="bieshu01">
+		
+	</div>
+	<div class="bieshu02">
+		<div class="bieshu02_main">
+			<img src="images/bs_01.png" alt="南昌志远装饰">
+			<ul class="bs_btn">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+
+			<!-- 弹框报名表单 -->
+			<div class="bs_tk_wrap">
+				<div class="bs_tk">
+					<i></i>
+					<form action="javascript:;" method="POST" class="bs_bm">
+						<input type="text" placeholder="请输入您的姓名" name="tc_name02" id="tc_name02">
+						<input type="text" placeholder="请输入您的电话号码" name="tc_shouji02" id="tc_shouji02">
+						<a href="javascript:;" onclick="bs_tj()">立即高端定制</a>
+					</form>
+				</div>
+			</div>
+			<script type="text/javascript">
+				//弹框表单的ajax提交代码
+				
+				function getNowFormDate() 
+                {
+                  var date = new Date();
+                  var seperator1 = "-";
+                  var seperator2 = ":";
+                  var year = date.getFullYear();
+                  var month = date.getMonth() + 1;
+                  var strDate = date.getDate();
+                  if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                  }
+                  if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                  }
+                  var currentdate = year + seperator1 + month + seperator1 + strDate
+                      + " " + date.getHours() + seperator2 + date.getMinutes()
+                      + seperator2 + date.getSeconds();
+                  return currentdate;
+                };
+
+                var up_time02 = getNowFormDate();
+                function bs_tj(){
+                	var tc_name02 = document.getElementById("tc_name02");
+              	    var tc_shouji02 = document.getElementById("tc_shouji02");
+              	    var data = 'tc_name02='+ tc_name02.value + '&tc_shouji02=' + tc_shouji02.value + '&up_time02='+ up_time02 + '&action=post'+ '&diyid=72&do=2&dede_fields=xingming,textchar;tel,textchar;updatatime,textchar';
+
+              	    $.ajax({
+              	    	type:'POST',
+              	    	data:data,
+              	    	url:"/plus/diy_ajax.php",
+              	    	success:function(data){
+              	    		alert(data);
+              	    		$('.tc_name02,.tc_shouji02').val(' ');
+              	    	}
+              	    });
+                }
+               
+                
+
+
+				//设置点击调出弹框报名表单
+				$('.bs_btn li').on('click',function(){
+					$('.bs_tk_wrap').fadeIn(300);
+				});	
+				$('.bs_tk i').on('click',function(){
+					$('.bs_tk_wrap').fadeOut(300);
+				});
+			</script>		
+		</div>
+	</div>
+	<div class="bieshu03">
+		<div class="bieshu03_main">
+			<img src="images/bs_02.png" alt="南昌志远装饰">
+		</div>
+	</div>
+
+	<div class="bieshu04">
+		<div class="bieshu04_main">
+			<div class="bs04_top">
+				<ul>
+					<li class="current">中式风格</li>
+					<li>现代风格</li>
+					<li style="margin-right: 0;">欧式风格</li>
+				</ul>
+				<script type="text/javascript">
+					$(function (argument) {
+						//点击各种风格进行切换图片	
+						$('.bs04_top li').on('click',function(){
+
+							var index = $(this).index();
+							$('.bs04_pic').stop().animate({
+								'left':-index*1200
+
+							},500);
+							$(this).addClass('current').siblings().removeClass('current');
+
+						});
+						//点击客厅等进行tab栏切换
+						$('.bs04_btn ul li').on('click',function(){
+							var index2 = $(this).index();
+							$(this).addClass('current').siblings().removeClass('current');
+							$('.bs04_img li').eq(index2).addClass('current').siblings().removeClass('current');
+							$('.bs04_img3 li').eq(index2).addClass('current').siblings().removeClass('current');
+							$('.bs04_img2 li').eq(index2).addClass('current').siblings().removeClass('current');
+						});
+					});	
+
+				</script>	
+			</div>	
+			<div class="bs04_bd">
+				<div class="bs04_pic">
+					<div class="bs04_pic_ul">
+						<ul class="bs04_img ">
+							<li class="current"><img src="images/bs_pic04.png" alt="南昌志远装饰"></li>
+							<li><img src="images/zsct.jpg" alt="南昌志远装饰"></li>
+							<li><img src="images/zsws.jpg" alt="南昌志远装饰"></li>
+							<li><img src="images/zshy.jpg" alt="南昌志远装饰"></li>
+						</ul>
+						<div class="bs04_txt">
+							<h3>【雅墅】----效果图</h3>
+							<div class="bs04_p">
+								<p>客餐厅的设计在色彩搭配上强调
+								了空间的整体性，但在细节的描
+								画方面，不同材质的使用又碰撞
+								出不一样的家居之美。</p>
+							</div>	
+							<div class="bs04_btn">
+								<ul>
+									<li class="current">客厅</li>
+									<li>餐厅</li>
+									<li>卧室</li>
+									<li>花园</li>
+								</ul>
+							</div>
+						</div>
+					</div>	
+					<div class="bs04_pic_ul">
+						<ul class="bs04_img2">
+							<li class="current"><img src="images/bs_pic04.png" alt="南昌志远装饰"></li>
+							<li><img src="images/zsct.jpg" alt="南昌志远装饰"></li>
+							<li><img src="images/zsws.jpg" alt="南昌志远装饰"></li>
+							<li><img src="images/zshy.jpg" alt="南昌志远装饰"></li>
+						</ul>
+						<div class="bs04_txt">
+							<h3>【雅墅】----效果图</h3>
+							<div class="bs04_p">
+								<p>客餐厅的设计在色彩搭配上强调
+								了空间的整体性，但在细节的描
+								画方面，不同材质的使用又碰撞
+								出不一样的家居之美。</p>
+							</div>	
+							<div class="bs04_btn">
+								<ul>
+									<li class="current">客厅</li>
+									<li>餐厅</li>
+									<li>卧室</li>
+									<li>花园</li>
+								</ul>
+							</div>
+						</div>
+					</div>	
+					<div class="bs04_pic_ul">	
+						<ul class="bs04_img3">
+							<li class="current"><img src="images/bs_pic04.png" alt="南昌志远装饰"></li>
+							<li><img src="images/zsct.jpg" alt="南昌志远装饰"></li>
+							<li><img src="images/zsws.jpg" alt="南昌志远装饰"></li>
+							<li><img src="images/zshy.jpg" alt="南昌志远装饰"></li>
+						</ul>
+						<div class="bs04_txt">
+							<h3>【雅墅】----效果图</h3>
+							<div class="bs04_p">
+								<p>客餐厅的设计在色彩搭配上强调
+								了空间的整体性，但在细节的描
+								画方面，不同材质的使用又碰撞
+								出不一样的家居之美。</p>
+							</div>	
+							<div class="bs04_btn">
+								<ul>
+									<li class="current">客厅</li>
+									<li>餐厅</li>
+									<li>卧室</li>
+									<li>花园</li>
+								</ul>
+							</div>
+						</div>
+					</div>		
+				</div>	
+				
+			</div>
+			<div class="bs04_ft">
+				<img src="images/bs_pic01.png" alt="南昌志远装饰">
+			</div>
+		</div>	
+	</div>
+	<div class="bieshu05">
+		<div class="bs05_main">
+			<img src="images/bs_03.png" alt="南昌志远装饰">
+		</div>			
+	</div>
+
+	<div class="bieshu06">
+		<div class="bs06_main">
+			<div class="bs06_top">
+				<ul>
+					<li class="current">地板</li>
+					<li>瓷砖</li>
+					<li>橱柜</li>
+					<li>乳胶漆</li>
+					<li>卫浴</li>
+					<li style="margin-right: 0">洁具</li>
+				</ul>
+			</div>
+			<div class="bs06_bd">
+				<ul>
+						<li ><img src="images/bs_pic02.jpg" alt="南昌志远装饰"></li>
+						<li><img src="images/bs_pic07.jpg" alt="南昌志远装饰"></li>
+						<li><img src="images/bs_pic02.jpg" alt="南昌志远装饰"></li>
+						<li><img src="images/bs_pic05.jpg" alt="南昌志远装饰"></li>
+						<li><img src="images/bs_pic06.jpg" alt="南昌志远装饰"></li>
+						<li><img src="images/bs_pic04.jpg" alt="南昌志远装饰"></li>
+						<li ><img src="images/bs_pic02.jpg" alt="南昌志远装饰"></li>
+				</ul>	
+			
+				<div class="bs06_arr_wrapR">
+					<div class="bs06_arrR"></div>
+				</div>
+				<div class="bs06_arr_wrapL">
+					<div class="bs06_arrL"></div>
+				</div>
+				<script type="text/javascript">
+					//点击bs06_top li切换图片
+					$('.bs06_top li').on('click',function(){
+						var index =$(this).index();
+						$(this).addClass('current').siblings().removeClass('current');
+						$('.bs06_bd ul').stop().animate({
+							'left':-index*1200
+						},500);	
+					});
+					//点击右边箭头滑动图片
+					var num = 0;
+					var flag = true;
+					$('.bs06_arr_wrapR').on('click',function(){
+						//定制函数节流
+						if (flag) {
+							num++;
+							if (num > 6) {
+								
+								$('.bs06_bd ul').css({left:0});
+								num = 1;
+							}
+							
+							flag =false;
+							
+							$('.bs06_bd ul').stop().animate({
+								'left':-num*1200
+							},500,function(){
+								flag =true;
+							});
+						};
+						//上面的瓷砖地板等随着图片的切换也进行切换
+						if (num==6) {
+							$('.bs06_top li').eq(0).addClass('current').siblings().removeClass('current');
+
+						}
+						$('.bs06_top li').eq(num).addClass('current').siblings().removeClass('current');
+					});
+					//点击左边箭头滑动图片
+					$('.bs06_arr_wrapL').on('click',function(){
+						//定制函数节流
+						if (flag) {	
+							num--;
+							if (num < 0) {
+								
+								$('.bs06_bd ul').css({left:-6*1200});
+								num = 5;
+							};
+							flag =false;
+
+							$('.bs06_bd ul').stop().animate({
+								'left':-num*1200
+							},500,function(){
+								flag =true;
+							})
+						};
+						if (num==6) {
+							$('.bs06_top li').eq(0).addClass('current').siblings().removeClass('current');
+
+						};
+						$('.bs06_top li').eq(num).addClass('current').siblings().removeClass('current');	
+					});
+				</script>
+
+			</div>
+		</div>
+	</div>
+	<div class="bieshu07">
+		<div class="bs07_main">
+			<img src="images/bs_pic02.png" alt="南昌志远装饰">
+		</div>	
+	</div>
+	<div class="bieshu08">
+		<div class="bs08_main">
+			<img src="images/bs_pic03.png" alt="南昌志远装饰">
+		</div>	
+	</div>
+	<div class="bieshu09">
+		<div class="bs09_main">
+			<form action="javascript:;" method="POST">
+				<input type="text" placeholder="请输入您的姓名">
+				<input type="text" placeholder="请输入您的手机号码">
+				<a href="javascript:;" class="bs_tj" onclick="ajax_mianfei()"> </a>
+			</form>
+			<!-- ajax提交代码 -->
+			<script type="text/javascript">
+				//get current time
+                
+
+                var Times = getNowFormDate(); 
+                //ajax提交表单   
+                function ajax_mianfei(){
+                    
+                    var xingming=document.getElementById("xingming");
+                    var tel=document.getElementById("tel");
+                   
+                    
+                    //定义变量接收上面表单每项的值和几个dede隐藏的input的值
+                    var dataString = 'xingming='+ xingming.value + '&tel=' + tel.value + '&updatatime=' + Times +'&action=post'+ '&diyid=70&do=2&dede_fields=xingming,textchar;tel,textchar;updatatime,textchar';
+
+                    if (xingming.value==" ") {
+                      alert("请输入您的姓名");
+                      return false;
+                    };
+                    if (tel.value==" " || tel.value.length  != 11) {
+                      alert("请输入正确的手机号码");
+                      return false
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "/plus/diy_ajax.php", //提交到后台文件
+                        data: dataString, //传值
+                        success: function(data) {
+
+                            alert(data);//成功打印PHP返回的值
+                            $('#xingming,#tel').val("");
+                        }
+                    });
+                    return false;
+
+                }
+			</script>
+		</div>
+	</div>
+	
+</body>
+</html>

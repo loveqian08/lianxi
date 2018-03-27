@@ -1,0 +1,734 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+  <link rel="stylesheet" href="/css/article.css">
+  <link  rel="stylesheet" href="/css/index.css" />
+  <link rel="stylesheet" href="/css/list_september.css" />
+  <link rel="stylesheet" href="/css/animate.min.css" />
+  <script type="text/javascript" src="/js/wow.min.js"></script>
+  <script src="/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.SuperSlide.2.1.js"></script>
+  <script src="/js/jquery.lazyload.min.js"></script>
+  <script src="/js/index.js"></script>
+  <script src="/js/animate.js"></script>
+  <script src="/js/index_new.js"></script>
+
+<!-- 360统计 -->
+<script type="text/javascript" src="//s.union.360.cn/165584.js" async defer></script>
+
+</head>
+
+<body>
+{dede:include filename="head.htm"/} 
+<!-- banner开始 -->
+
+  <div class="box">
+    
+    <ul>
+    
+      <li class="hero3"><a href="http://nczyzs.com/tuan/hyword_kaimen.html" target="_blank"></a></li>
+      
+      <li><a href="http://nczyzs.com/tuan/list_test.html" target="_blank"></a></li>
+      <li class="hero2" >
+          <a href="http://nczyzs.com/tuan/list_zhucai.htm" target="_blank"></a>
+      </li>
+      <li class="hero5"><a href="http://nczyzs.com/tuan/list_bieshu.html" target="_blank"></a></li>
+    </ul>
+    <ol>
+      <li class="current"></li>
+      <li></li>
+      <li></li>
+     
+      <li></li>
+    </ol>
+    <span class="left"></span>
+    <span class="right"></span>
+  </div>
+<!-- 表单 -->
+<!-- 免费名额 --> 
+<div class="bidaoWrap_box">  
+  <div class="biaoWrap">
+    <div class="main-right nomargin" >
+            <ul class="main-hd ">
+              <li class="current">
+                <i class="iconfont">&#xe81d;</i>免费设计
+              </li> 
+              <li class="rightNone">
+                <i class="iconfont">&#xe62d;</i>免费报价
+              </li>
+          
+            </ul>
+    <div class="main-bd current">
+              <p class="minge">
+                <span class="mfsj-l"></span>  
+                获取免费设计名额
+                <span class="mfsj-r"></span>
+              </p>
+              <div class="mfsj-mg">
+                <span class="haisheng">今日还剩</span>
+                <div class="mfsj-box">
+                  <em>1</em>
+                  <em>1</em>
+                  <em>8</em>  
+
+                </div>
+                <span class="geshu">个免费名额</span>
+                        
+              </div>
+          <form action="javascript:;" enctype="multipart/form-data" method="post"  onsubmit="return checkmianfei(this)">
+              <div class="mingzi">
+                <!--  <label for="name">请输入您的姓名</label>  -->
+                  <input type="hidden" name="action" value="post" />
+                <input type="hidden" name="diyid" value="7" />
+                <input type="hidden" name="do" value="2" />
+                 <input type="text" id="xingming" value="请输入您的姓名"  name='xingming' required data-msg-required="不能为空" style="color:#999"  />
+                </div>
+              <div class="phone-num">
+           
+                 <input type="text" id="tel" value="请输入您的手机号获取报价" name='tel'  style="color:#999" required data-rule-mobile="true" data-msg-required="请输入手机号" data-msg-mobile="请输入正确格式"/>
+                
+           </div>
+              <div class="mfsj-tk">
+                <input type="checkbox"  checked="checked" />
+                <label for="" class="mfsj-tk-div">
+                  <span>我已阅读并接受</span>
+                  <a href="http://www.to8to.com/help/index.php?id=76" target="_blank">《装修常见问题条款》</a>
+                </label>  
+              </div>
+              <input type="button" class="mfsj-submit" value="立即申请" onclick="ajax_mianfei()">
+
+              <input type="hidden" name="dede_fields" value="xingming,text;tel,text" />
+              <input type="hidden" name="dede_fieldshash" value="0c1b4219fbf02e9bacf7741f3370ca4c" />
+          </form>
+          <script>
+
+                //get current time
+                function getNowFormDate() 
+                {
+                  var date = new Date();
+                  var seperator1 = "-";
+                  var seperator2 = ":";
+                  var year = date.getFullYear();
+                  var month = date.getMonth() + 1;
+                  var strDate = date.getDate();
+                  if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                  }
+                  if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                  }
+                  var currentdate = year + seperator1 + month + seperator1 + strDate
+                      + " " + date.getHours() + seperator2 + date.getMinutes()
+                      + seperator2 + date.getSeconds();
+                  return currentdate;
+                }
+
+                var Times = getNowFormDate(); 
+                //ajax提交表单   
+                function ajax_mianfei(){
+                    
+                    var xingming=document.getElementById("xingming");
+                    var tel=document.getElementById("tel");
+                   
+                    
+                    //定义变量接收上面表单每项的值和几个dede隐藏的input的值
+                    var dataString = 'xingming='+ xingming.value + '&tel=' + tel.value + '&updatatime=' + Times +'&action=post'+ '&diyid=7&do=2&dede_fields=xingming,textchar;tel,textchar;updatatime,textchar';
+
+                    if (xingming.value==" ") {
+                      alert("请输入您的姓名");
+                      return false;
+                    };
+                    if (tel.value==" " || tel.value.length  != 11) {
+                      alert("请输入正确的手机号码");
+                      return false
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "/plus/diy_ajax.php", //提交到后台文件
+                        data: dataString, //传值
+                        success: function(data) {
+
+                            alert(data);//成功打印PHP返回的值
+                            $('#xingming,#tel').val("");
+                        }
+                    });
+                    return false;
+
+                }
+          </script>
+     
+          <script>
+            var xingming = document.getElementById("xingming");
+            var tel = document.getElementById("tel");
+            function huoqu(obj,val){
+              obj.onfocus = function(){
+                if (obj.value==val) {
+                  obj.value = "";
+                  obj.style.color =" /jingpinanli/666 ";
+                }
+              };
+              obj.onblur = function(){
+                if (obj.value=="") {
+                  obj.value = val;
+                  obj.style.color =" /jingpinanli/999";
+                }
+              }
+
+            };
+            huoqu(xingming,"请输入您的姓名");
+            huoqu(tel,"请输入您的手机号获取报价");
+
+
+          </script>
+        </div>
+
+        
+        <!-- 免费报价 -->
+        <div class="main-bd ">
+              
+          <form action="javascript:;" enctype="multipart/form-data" method="post"  onsubmit="return checkbaojia(this)">
+              <div class="mingzi">
+              
+
+                 <input type="text" id="mianji"  name='mianji' value="请输入您的房屋的面积"  style="color:#999" data-rule-gt="true" data-gt="0"/>
+                 <em class="mfbj-unit">㎡</em> 
+              </div>
+              <div class="mianfei-baojia" style="background:rgba(255,255,255) !important">
+                <select name="shi" id="mfbj-shi">
+                  <option value="1室">1室</option>
+                  <option value="1室">2室</option>
+                  <option value="1室">3室</option>
+                  <option value="1室">4室</option>
+                  <option value="1室">5室</option>
+              
+                </select>
+                <select name="ting" id="mfbj-ting">
+                  <option value="1厅">1厅</option>
+                  <option value="1厅">2厅</option>
+                  <option value="1厅">3厅</option>
+                  <option value="1厅">4厅</option>
+                  <option value="1厅">5厅</option>
+              
+                </select> 
+                <select name="chu" id="mfbj-chu" style="margin-right: 0">
+                  <option value="1厨">1厨</option>
+                  <option value="1厨">2厨</option>
+                  <option value="1厨">3厨</option>
+                </select>
+                
+                <select name="weishengjian" id="mfbj-wei">
+                  <option value="1卫生间">1卫生间</option>
+                  <option value="1卫生间">2卫生间</option>
+                  <option value="1卫生间">3卫生间</option>
+                </select>
+                <select name="yangtai" id="mfbj-yangtai" style="margin-right: 0">
+                  <option value="1阳台">1阳台</option>
+                  <option value="1阳台">2阳台</option>
+                  <option value="1阳台">3阳台</option>
+                </select>
+
+              </div>
+              <input type="text" id="neiyetel" name="neiyetel" value="请输入您的手机号获取报价" style="color:#999" required data-rule-mobile="true" data-msg-required="请输入手机号" data-msg-mobile="请输入正确格式"/>
+
+             
+               <input type="button" class="mfbj-submit mg26" value="立即计算"  onclick="ajax_baojia()">
+          </form>
+
+          <!-- 报价表单验证功能 -->
+          <script>
+
+                //ajax提交表单   
+                function ajax_baojia(){
+                    
+                    var mianji=document.getElementById("mianji");
+                    var neiyetel=document.getElementById("neiyetel");
+                   
+                    
+                    //定义变量接收上面表单每项的值和几个dede隐藏的input的值
+                    var dataString = 'mianji='+ mianji.value + '&neiyetel=' + neiyetel.value  + '&updatetime=' + Times  +'&action=post'+ '&diyid=8&do=2&dede_fields=mianji,textchar;neiyetel,textchar;updatetime,textchar';
+
+                    if (mianji.value==" ") {
+                      alert("请输入您的姓名");
+                      return false;
+                    };
+                    if (neiyetel.value==" " || neiyetel.value.length  != 11) {
+                      alert("请输入正确的手机号码");
+                      return false
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "/plus/diy_ajax.php", //提交到后台文件
+                        data: dataString, //传值
+                        success: function(data) {
+
+                            alert(data);//成功打印PHP返回的值
+                            $('#mianji,#neiyetel').val("");
+                        
+                        }
+                    });
+                    return false;
+
+                }
+
+          </script>
+           <script>
+                
+       
+            var xingming = document.getElementById("xingming");
+            var mianji = document.getElementById("mianji");
+            var neiyetel = document.getElementById("neiyetel");
+            function huoqu(obj,val){
+              obj.onfocus = function(){
+                if (obj.value==val) {
+                  obj.value = "";
+                  obj.style.color =" /jingpinanli/666 ";
+                }
+              };
+              obj.onblur = function(){
+                if (obj.value=="") {
+                  obj.value = val;
+                  obj.style.color =" /jingpinanli/999 ";
+                }
+              }
+
+            };
+            huoqu(mianji,"请输入您的房屋的面积");
+         
+              huoqu(neiyetel,"请输入您的手机号获取报价");
+         </script>
+        </div>
+
+      <script>
+          //Tab栏切换
+          $('.main-hd li').mouseenter(function(){
+            $(this).addClass('current').siblings().removeClass('current');
+            var index6=$(this).index();
+            $('.main-bd').eq(index6).addClass('current').siblings().removeClass('current'); 
+          }); 
+
+        </script>
+    </div>
+  </div><!-- w1200居中盒子 -->
+</div> <!-- 表单最外层父盒子 -->    
+<!-- 最高品质 -->
+  <div class="fourlist">
+  
+  </div>
+  <!-- 一站式全屋整装爆款 -->
+  <div class="qwzz_wrap">
+
+    <div class="qwzz">
+      <!-- 一站式全屋整装爆款标题 -->
+        <div class="nin_title wow animate fadeInUp" data-wow-delay="0.3ss">
+      <img class="changtiao lazy" data-original="/images/nindex_pic6.jpg" alt="南昌志远装饰">
+      <b>一站式全屋整装爆款</b>
+      
+     </div>   
+
+      <a href="javascript:;" class="yuyue_btn">
+        <p class="peple">7896</p> 
+      </a>  
+    </div>    
+  </div>
+  <!-- 报名表单 -->
+  <div class="sep_box" >
+    <i></i>
+    <div class="sep_top">
+    </div>  
+      <div class="sep_submit">  
+      <form action="javascript:;" method="post">
+        <input type="hidden" name="action" value="post">
+        <input type="hidden" name="diyid" value="9">
+        <input type="hidden" name="do" value="2">
+      
+        <input type="text" placeholder="请输入您的姓名" class="sep_name" name="tc_name03" id="tc_name03" cla="">
+        <input type="text" placeholder="请输入您的手机号码" class="sep_phone" name="tc_shouji03" id="tc_shouji03">
+        <p>已有3456位业主免费报名成功</p>
+        <a href="javascript:;" class="sep_biaomng" onclick="add_xinxi()">立即报名</a>
+        <input type="hidden" name="dede_fields" value="tc_name03,text;tc_shouji03,text">
+        <input type="hidden" name="dede_fieldshash" value="74d4d158c39d2cb1b247ce4e933766c7">
+
+      </form>
+      <script>
+        var Times = getNowFormDate(); 
+        function add_xinxi(){
+            var tc_name03=document.getElementById("tc_name03");
+            var tc_shouji03=document.getElementById("tc_shouji03");
+           
+            
+            //定义变量接收上面表单每项的值和几个dede隐藏的input的值
+            var dataString = 'tc_name03='+ tc_name03.value + '&tc_shouji03=' + tc_shouji03.value + '&up_time03=' + Times +'&action=post'+ '&diyid=9&do=2&dede_fields=tc_name03,textchar;tc_shouji03,textchar;up_time03,textchar';
+
+            if (tc_name03.value=="") {
+              alert("请输入您的姓名");
+              return false;
+            };
+            if (tc_shouji03.value=="" || tc_shouji03.value.length  != 11 ) {
+              alert("请输入正确的手机号码");
+              return false
+            };
+            $.ajax({
+                type: "POST",
+                url: "/plus/diy_ajax.php", //提交到后台文件
+                data: dataString, //传值
+                success: function(data) {
+
+                    alert(data);//成功打印PHP返回的值
+
+                  $('#tc_name03,#tc_shouji03').val(" ");
+
+            }
+        });
+        return false;
+
+    } 
+      </script>
+      </div>  
+  </div><!-- 报名表单 -->   
+  <!-- 案例 -->
+  <div class="nin_pic wow animate fadeInUp animated" data-wow-delay="0.3s">
+   <div class="nin_title ">
+    <img class="changtiao  lazy" data-original="/images/nindex_pic6.jpg" alt="南昌志远装饰" />
+    <b >案例 团案</b>
+    <ul class="nin_pic_ul">
+            <li><a href="/jingpinanli/" target="_blank">风格简约现代</a></li>
+            <li><a href="/jingpinanli/" target="_blank">中式</a></li>
+            <li><a href="/jingpinanli/" target="_blank">欧式</a></li>
+            <li><a href="/jingpinanli/" target="_blank">美式</a></li>
+      
+        </ul>
+   </div> 
+   <div class="nin_pic_cen">
+        <div class="nin_pic_cena">
+            <a class="nin_pic_cenap" href="http://www.nczyzs.com/jingpinanli/2017/0331/163.html" target="_blank">
+                <img class="pic_hover lazy" data-original="/images/nindex_pic1.jpg">
+            </a>
+            <p class="nin_pic_cenap1">美式风格 | 4室1厅 | 124㎡ | 全包</p>
+            <p class="nin_pic_cenap2">绿地悦城</p>
+            <a href="javascript:" class="nin_pic_btn tan111">立即预约</a>
+        </div>
+        <div class="nin_pic_cenb">
+            <ul id="anliWrap">
+               
+            </ul>
+        </div>
+        
+    </div>  
+  </div>
+<!-- 品牌 -->
+<div class="nin_brand " >
+  <h3 class="index-common-title slow-emerge wow animate fadeInUp animated" data-wow-delay="0.3s" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <span class="index-common-title-before"></span>
+                        一线品牌
+                        <span class="index-common-title-after"></span>
+     </h3>
+     <p class="wow animate fadeInUp animated">为您甄选一线顶尖品牌 更安全更健康</p>
+  <div class="brandWrap">
+    <ul id="brandWrap_ul">
+        
+    </ul> 
+  </div>  
+</div>
+<!-- 实例效果图 -->
+
+<div class="VrWrap" id="VrWrap">
+  <div class="nin_title Vr_title wow animate fadeInUp animated" data-wow-delay=".3s">
+    <img class="changtiao2 lazy" data-original="/images/nindex_pic6.jpg" alt="南昌志远装饰" />
+    <b>精品 案例</b>
+    <ul class="nin_pic_ul">
+            <li><a href="#" target="_blank">风格简约现代</a></li>
+            <li><a href="#" target="_blank">中式</a></li>
+            <li><a href="#" target="_blank">欧式</a></li>
+            <li><a href="#" target="_blank">美式</a></li>
+      
+        </ul>
+   </div> 
+  <div class="Vr_box" id="Vr_box">
+    <ul>
+      <li>
+        <a href="/jingpinanli/">
+          <img class="lazy" data-original="/images/nin_vr1.png" alt="南昌志远装饰" />
+        </a>
+      </li>
+      <li>
+        <a href="/jingpinanli/">
+          <img class="lazy" data-original="/images/nin_vr2.png" alt="南昌志远装饰" />
+        </a>
+      </li>
+      <li>
+        <a href="/jingpinanli/">
+          <img class="lazy" data-original="/images/nin_vr3.png" alt="南昌志远装饰" />
+        </a>
+      </li>
+    </ul> 
+    <div class="arrow" id="arrow">
+      <a href="javascrip:;" class="pre"></a>
+      <a href="javascrip:;" class="next"></a> 
+    </div>  
+  </div>
+  <!-- 旋转木马 -->
+  <script>
+     var json = [
+    {
+      width:808,
+      left:126,
+      height:460,
+      top:0,
+      zIndex:1
+    },{
+      width:646,
+      left:0,
+      zIndex:0,
+      height:368,
+      top:41
+
+    },{
+      width:646,
+      left:420,
+      zIndex:0,
+      height:368,
+      top:41
+    }
+    
+  ];
+  var VrWrap = document.getElementById("VrWrap");
+  var Vr_box = document.getElementById("Vr_box");
+  var lis = Vr_box.getElementsByTagName("li");
+  var arrow = document.getElementById("arrow");
+
+  Vr_box.onmouseover = function(){
+    clearInterval(timer2);
+    /*animate(arrow,{'opacity':100})*/
+  }
+  Vr_box.onmouseout = function(){
+    clearInterval(timer2);
+    timer2 = setInterval(change,3000)
+    /*animate(arrow,{'opacity':0})*/
+  }
+  
+  var as = arrow.children;
+  //函数节流 
+  var jieliu = true;
+  change();
+  for(var k in as){
+    
+    as[k].onclick = function(){
+      if (this.className == "pre") {
+        
+        if (jieliu == true) {
+          change(true)  
+          jieliu = false;
+        }
+        
+      }else{
+        //change(true)
+        if (jieliu == true) {
+          change(false) 
+          jieliu = false;
+        }
+      }
+    } 
+
+  }
+  
+  //定义change函数
+  //定义一个开关来判断是左箭头还是右边箭头
+  
+  function change(flag){
+    if (flag) {
+      // 把第一个删除放在最后面一个位置
+      json.push( json.shift() );
+
+    }else{
+      
+      json.unshift( json.pop() );
+    }
+    for (var i = 0; i < json.length; i++) {
+      
+      animate2(lis[i],{
+        width:json[i].width,
+        left:json[i].left,
+        top:json[i].top,
+        zIndex:json[i].zIndex,
+        height:json[i].height
+      },function(){jieliu = true})
+    }
+  }
+  //paomade结束
+  var timer2 = null;
+  timer2 = setInterval(change,3000);  
+
+  </script>
+</div>
+<!-- 装修流程 -->
+<div class="liucheng">
+  <div class="nin_title Vr_title wow animate fadeInUp animated">
+    <img class="changtiao2 lazy"  data-original="/images/nindex_pic6.jpg" alt="南昌志远装饰" />
+    <b>装修 流程</b>
+    
+   </div>
+   <div class="zx_liucheng"></div>  
+</div>
+<!-- 品牌动态 -->
+<div class="liucheng">
+  <div class="nin_title Vr_title wow animate fadeInUp animated">
+    <img class="changtiao2 lazy" data-original="/images/nindex_pic6.jpg" alt="南昌志远装饰" />
+    <b>品牌 动态</b>
+    
+   </div>
+   <div class="newWrap wow animate fadeInUp">
+    <ul>
+      <li>
+        <a href="http://nczyzs.com/tuan/list_sep.htm" target="_blank">
+          <img class="lazy" data-original="/images/nin_news2.jpg" alt="南昌志远装饰" />
+          <div class="newsWrap">
+            <h3><i></i>志远装饰联合欧亚达10月6日大放价</h3>
+            <p>志远装饰联合欧亚达家居，10月6日在青云谱区欧亚达家居广场举行大放价活动，凭门票参加活动，还可以免费领取1000个电饭煲和行李箱。数量有限，领完为止。</p>
+          </div>
+        </a>  
+      </li>
+      <li>
+        <a href="http://nczyzs.com/News/2017/0926/451.html" target="_blank">
+          <img class="lazy" data-original="/images/nin_news1.jpg" alt="南昌志远装饰" />
+          <div class="newsWrap">
+            <h3><i></i>如何正确的选择装修公司</h3>
+            <p>现在的装修公司分为大型装修公司和中小型装修公司，每个公司的体制性质都不一样，在选择装修公司这方面，尤其是买完房子后，大家开始苦恼的就是新房要装修，没有经验的业主寻找装修公司时会很盲目，又容易被装修公司的花言巧语和热情所欺骗。</p>
+          </div>
+        </a>  
+      </li>
+      <li>
+        <a href="http://www.nczyzs.com/News/2017/0816/436.html" target="_blank">
+          <img class="lazy" data-original="/images/nin_news3.jpg" alt="南昌志远装饰" />
+          <div class="newsWrap" >
+            <h3><i></i>既然要装修，就一定要为孩子着想</h3>
+            <p>子是祖国的花朵，孩子是父母的心头肉，他们的健康聪明与日常生活环境是脱离不了关系。随着生活条件的不断提高，一个孩子拥有一间属于自己的卧室是在寻常不过了，然而对儿童房的装修设计，很多父母基本是不了解的，更别提说布置的得体了。</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+   </div> 
+</div>
+<!-- 装修攻略 -->
+<div class="liucheng">
+  <div class="nin_title Vr_title wow animate fadeInUp animated">
+    <img class="changtiao2 lazy" data-original="/images/nindex_pic6.jpg" alt="南昌志远装饰" />
+    <b>装修 攻略</b>
+    
+   </div>
+   <div class="glWrap">
+    <ul>
+      <li>
+        <a href="http://nczyzs.com/News/2017/0909/440.html" target="_blank">
+          <img class="lazy" data-original="/images/fun1.jpg" alt="南昌志远装饰" /> 
+          <p class="glWrap_p"># 家居风水之客厅<br />
+            <span>的风水选对了吗？#</span>
+          </p>
+          
+          <p class="glWrap_p2">
+            <img class="lazy" data-original="/images/fun4.jpg" alt="南昌志远装饰"  />
+            人们的一日三餐离不开厨房</p>
+        </a>
+      </li>
+      <li>
+        <a href="http://nczyzs.com/News/2017/0802/428.html" target="_blank">
+          <img class="lazy" data-original="/images/fun2.jpg" alt="南昌志远装饰" /> 
+          <p class="glWrap_p"># 装修照明时刻影响<br />
+            <span>我们的食欲#</span>
+          </p>
+          
+          <p class="glWrap_p2">
+            <img class="lazy" data-original="/images/fun4.jpg" alt="南昌志远装饰"  />
+            你知道吗？
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="http://nczyzs.com/News/2017/0708/403.html" target="_blank">
+          <img class="lazy" data-original="/images/fun3.jpg" alt="南昌志远装饰" /> 
+          <p class="glWrap_p"># 装修后我们到底><br />
+            <span>多久入住呢？#</span>
+          </p>
+          <p class="glWrap_p2">
+            <img class="lazy" data-original="/images/fun4.jpg" alt="南昌志远装饰"  />
+            新房装修后会有很多有毒物质！
+          </p>
+        </a>
+      </li>
+    </ul>
+   </div>
+</div>
+<!-- 品牌封装代码 -->
+<script src="/js/bland.js"></script>
+<!-- 团装案列封装代码 -->
+<script src="/js/case.js"></script>
+<!-- 底部调用 -->
+{dede:include filename="footer.htm"/}
+<!-- {dede:include filename="dibu-jisuan.htm"/} -->
+<!-- 图片迟加载 -->
+
+  <script src="/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+  
+  $(function(){
+    $("img.lazy").lazyload({
+      effect: "fadeIn",
+      threshold: 300
+    });
+  })
+</script>
+<script type="text/javascript">
+  if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+    new WOW().init();
+  };
+  $(function() {
+    (function($){
+      $('.flexslider').flexslider({
+      animation : 'slide',
+      controlNav : true,
+      directionNav : false,
+      animationLoop : true,
+      slideshow : true,
+      useCSS : false,
+      slideshowSpeed:10000
+      });
+      $.fn.extend({
+        Scroll:function(opt,callback){
+          //参数初始化
+          if(!opt) var opt={};
+          var _this=this.eq(0).find("table:first");
+          var lineH=_this.find("tr:first").height(), //获取行高
+          line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10),
+          speed=opt.speed?parseInt(opt.speed,10):5000, //卷动速度，数值越大，速度越慢（毫秒）
+          timer=opt.timer?parseInt(opt.timer,10):5000; //滚动的时间间隔（毫秒）
+          if(line==0) line=1;
+          var upHeight=0-line*lineH;
+          //滚动函数
+          scrollUp=function(){
+            _this.animate({
+              marginTop:upHeight
+            },speed,function(){
+              for(i=1;i<=line;i++){
+                _this.find("tr:first").appendTo(_this);
+              }
+              _this.css({marginTop:0});
+            });
+          }
+          //鼠标事件绑定
+          _this.hover(function(){
+            clearInterval(timerID);
+          },function(){
+            timerID=setInterval("scrollUp()",timer);
+          }).mouseout();
+        }        
+      })
+      })(jQuery);
+      /*$("#scrollDiv").Scroll({line:1,speed:500,timer:1000}); */
+  });
+</script>
+
+</body>
+</html>
